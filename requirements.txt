@@ -6,3 +6,5 @@ pytube
 pydub
 whisper
 SpeechRecognition
+googletrans==4.0.0-rc1
+deep-translator
