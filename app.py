@@ -26,6 +26,10 @@ if prompt:  # Check if prompt is not None or empty
     )
 else:
     print("Error: prompt is empty or undefined.")
+    
+messages=[{"role": "user", "content": prompt}]
+
+prompt = "Suggest a Bollywood song starting with 'क'"
 
 # Function to fetch YouTube link
 def get_youtube_link(song_name):
