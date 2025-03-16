@@ -18,11 +18,14 @@ def get_last_letter(song_name):
     return translation.strip()[-1]  # Last character in Hindi
 
 # Function to get a song from OpenAI
-response = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo",
-    messages=[{"role": "user", "content": prompt}],
-    max_tokens=50
-)
+if prompt:  # Check if prompt is not None or empty
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": prompt}],
+        max_tokens=50
+    )
+else:
+    print("Error: prompt is empty or undefined.")
 
 # Function to fetch YouTube link
 def get_youtube_link(song_name):
