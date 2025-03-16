@@ -1,0 +1,6 @@
+streamlit
+openai
+googletrans
+youtube_dl
+pytube
+whisper
