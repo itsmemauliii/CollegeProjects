@@ -2,29 +2,18 @@ import streamlit as st
 import openai
 import speech_recognition as sr
 from pytube import YouTube
-import re
 import os
-from pydub import AudioSegment
-from pydub.playback import play
+from deep_translator import GoogleTranslator
 
 # Load API Key (Set in Streamlit Secrets or directly here)
 openai.api_key = "YOUR_OPENAI_API_KEY"
 
 # Initialize Translator
-from googletrans import Translator
-translator = Translator()
-print(translator.translate("Hello", src="en", dest="hi").text)
-
-from deep_translator import GoogleTranslator
 translator = GoogleTranslator(source="en", target="hi")
 
-# Streamlit UI Setup
-st.title("🎵 Antakshari AI - Bollywood Singing Agent")
-st.subheader("Play Antakshari with AI! Enter a song or sing, and let AI respond.")
-
-# Function to detect last letter of a song (Hindi)
+# Function to detect the last letter of a song (Hindi)
 def get_last_letter(song_name):
-    translation = translator.translate(song_name, src="en", dest="hi").text
+    translation = translator.translate(song_name)
     return translation.strip()[-1]  # Last character in Hindi
 
 # Function to get a song from OpenAI
@@ -56,6 +45,10 @@ def recognize_speech():
         except sr.RequestError:
             st.error("Speech recognition error. Please check your connection.")
 
+# Streamlit UI Setup
+st.title("🎵 Antakshari AI - Bollywood Singing Agent")
+st.subheader("Play Antakshari with AI! Enter a song or sing, and let AI respond.")
+
 # User Input Section
 input_method = st.radio("Choose input method:", ("🎤 Sing (Voice Input)", "⌨️ Type (Text Input)"))
 
@@ -86,4 +79,5 @@ if "user_song" in locals() and user_song:
         prompt="Give a fun response to an Antakshari player",
         max_tokens=30
     ).choices[0].text.strip()
+
     st.info(f"🤖 AI: {ai_comment}")
