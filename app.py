@@ -6,7 +6,8 @@ import os
 from deep_translator import GoogleTranslator
 
 # Load API Key (Set in Streamlit Secrets or directly here)
-openai.api_key = "Grow With Me"
+
+openai.api_key = st.secrets["openai"]["api_key"]
 
 # Initialize Translator
 translator = GoogleTranslator(source="en", target="hi")
