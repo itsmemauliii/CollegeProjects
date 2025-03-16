@@ -1,7 +1,6 @@
 import streamlit as st
 import openai
 import speech_recognition as sr
-from googletrans import Translator
 from pytube import YouTube
 import re
 import os
@@ -12,7 +11,12 @@ from pydub.playback import play
 openai.api_key = "YOUR_OPENAI_API_KEY"
 
 # Initialize Translator
+from googletrans import Translator
 translator = Translator()
+print(translator.translate("Hello", src="en", dest="hi").text)
+
+from deep_translator import GoogleTranslator
+translator = GoogleTranslator(source="en", target="hi")
 
 # Streamlit UI Setup
 st.title("🎵 Antakshari AI - Bollywood Singing Agent")
