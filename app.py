@@ -18,7 +18,9 @@ def get_last_letter(song_name):
     return translation.strip()[-1]  # Last character in Hindi
 
 # Function to get a song from OpenAI
-if prompt:  # Check if prompt is not None or empty
+prompt = "Suggest a Bollywood song starting with 'क'"  # Ensure prompt is defined
+
+if prompt:  # Now prompt is always defined before checking
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": prompt}],
@@ -26,10 +28,8 @@ if prompt:  # Check if prompt is not None or empty
     )
 else:
     print("Error: prompt is empty or undefined.")
-    
-messages=[{"role": "user", "content": prompt}]
 
-prompt = "Suggest a Bollywood song starting with 'क'"
+print("DEBUG: Prompt Value:", prompt)
 
 # Function to fetch YouTube link
 def get_youtube_link(song_name):
