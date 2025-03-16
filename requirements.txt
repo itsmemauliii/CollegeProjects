@@ -3,5 +3,6 @@ openai
 googletrans
 youtube_dl
 pytube
+pydub
 whisper
 SpeechRecognition
