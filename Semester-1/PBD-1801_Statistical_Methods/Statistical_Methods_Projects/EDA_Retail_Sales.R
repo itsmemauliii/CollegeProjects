@@ -1,10 +1,9 @@
 # Load libraries
 library(ggplot2)
 library(dplyr)
-
 # Load data
-retail_data <- read.csv("retail_sales.csv")
-
+retail_data <- read.csv(file.choose())
+retail_data
 # Initial summary
 summary(retail_data)
 str(retail_data)
@@ -31,4 +30,3 @@ ggplot(retail_data, aes(x = Region, y = Sales)) +
 library(e1071)
 skewness(retail_data$Sales)
 kurtosis(retail_data$Sales)
-
