@@ -1,5 +1,5 @@
 # Load data
-survey_data <- read.csv("survey_data.csv")
+survey_data <- read.csv(file.choose())
 survey_data
 # Create contingency table
 table_data <- table(survey_data$Gender, survey_data$ProductPreference)
