@@ -59,4 +59,4 @@ This course strengthened my logical thinking and coding skills. It has laid a st
 ---
 
 👤 Mauli Patel
-M.Sc. Big Data Analytics – St. Xavier’s College
+- M.Sc. Big Data Analytics – St. Xavier’s College
